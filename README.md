@@ -37,24 +37,7 @@ In one sentence: **it is a unit-test framework for swarm behaviour.**
 | Real flight tests are costly and risky | Everything runs on a laptop in about 10 minutes |
 | Failsafe logic is trusted on faith | The failsafe state machine is also written in embedded C++ and checked tick for tick against the Python version |
 
-##  Feature overview
-
-| Area | What you get |
-|---|---|
-| **Swarm simulator** | 5 drones with 3-D dynamics, steady wind plus gusts and turbulence, GPS with dead-reckoning fallback, and a radio with range, latency, jitter and packet loss |
-| **Two formation controllers** | Leader-follower (with automatic leader election) and leaderless consensus, tested identically |
-| **Per-drone failsafe** | A six-state machine: hold, GPS failsafe, latched controlled landing |
-| **Runtime safety monitor** | Separation keeping, "ghost" tracking of silent peers, vertical deconfliction, geofence push-back |
-| **Fault injector** | GPS dropout, GPS noise, comms loss, drone failure, packet loss, with seeded onset jitter |
-| **Evidence engine** | Metrics from ground truth, criteria engine, parallel seeded runner, Wilson 95% confidence intervals |
-| **Ablation study** | 480 extra trials with the safety layer switched off, to show what it actually contributes |
-| **Embedded C++ port** | Failsafe monitor with no heap and no STL, verified against Python by conformance tests |
-| **Reports** | 8-page PDF test report and Markdown copy, generated from the data |
-| **Dashboard** | Self-contained HTML replay of 24 recorded runs, dark mode and mobile friendly |
-| **Quality** | 65 automated tests, including a mutation check that proves the C++ conformance test catches bugs |
-| **Documentation** | Requirements, interface control document, test plan, design notes, demo script |
-
----
+<br>
 
 ## 🖥️ Interactive dashboard
 
@@ -400,6 +383,26 @@ Every trial is seeded, so rerunning gives the same numbers.
 | `python -m swarmsim dashboard` | Build the HTML replay dashboard |
 
 ---
+
+##  Feature overview
+
+| Area | What you get |
+|---|---|
+| **Swarm simulator** | 5 drones with 3-D dynamics, steady wind plus gusts and turbulence, GPS with dead-reckoning fallback, and a radio with range, latency, jitter and packet loss |
+| **Two formation controllers** | Leader-follower (with automatic leader election) and leaderless consensus, tested identically |
+| **Per-drone failsafe** | A six-state machine: hold, GPS failsafe, latched controlled landing |
+| **Runtime safety monitor** | Separation keeping, "ghost" tracking of silent peers, vertical deconfliction, geofence push-back |
+| **Fault injector** | GPS dropout, GPS noise, comms loss, drone failure, packet loss, with seeded onset jitter |
+| **Evidence engine** | Metrics from ground truth, criteria engine, parallel seeded runner, Wilson 95% confidence intervals |
+| **Ablation study** | 480 extra trials with the safety layer switched off, to show what it actually contributes |
+| **Embedded C++ port** | Failsafe monitor with no heap and no STL, verified against Python by conformance tests |
+| **Reports** | 8-page PDF test report and Markdown copy, generated from the data |
+| **Dashboard** | Self-contained HTML replay of 24 recorded runs, dark mode and mobile friendly |
+| **Quality** | 65 automated tests, including a mutation check that proves the C++ conformance test catches bugs |
+| **Documentation** | Requirements, interface control document, test plan, design notes, demo script |
+
+---
+
 
 ##  Honest findings and open issues
 
