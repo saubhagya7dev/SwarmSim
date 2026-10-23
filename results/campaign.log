@@ -1,0 +1,48 @@
+SwarmSim: 12 scenarios x 2 controllers x 30 trials = 720 runs (2 workers)
+  [trials] 60/720 trials  (31s)
+  [trials] 120/720 trials  (58s)
+  [trials] 180/720 trials  (85s)
+  [trials] 240/720 trials  (110s)
+  [trials] 300/720 trials  (138s)
+  [trials] 360/720 trials  (168s)
+  [trials] 420/720 trials  (193s)
+  [trials] 480/720 trials  (217s)
+  [trials] 540/720 trials  (246s)
+  [trials] 600/720 trials  (275s)
+  [trials] 660/720 trials  (302s)
+  [trials] 720/720 trials  (326s)
+Ablation: safety avoidance OFF on 12 scenarios, 20 trials each
+  [trials_ablation_no_avoidance] 60/480 trials  (23s)
+  [trials_ablation_no_avoidance] 120/480 trials  (44s)
+  [trials_ablation_no_avoidance] 180/480 trials  (63s)
+  [trials_ablation_no_avoidance] 240/480 trials  (87s)
+  [trials_ablation_no_avoidance] 300/480 trials  (105s)
+  [trials_ablation_no_avoidance] 360/480 trials  (128s)
+  [trials_ablation_no_avoidance] 420/480 trials  (148s)
+  [trials_ablation_no_avoidance] 480/480 trials  (171s)
+
+scenario                     controller            pass   rate  verdict  minsep  recov95
+01_nominal                   consensus          30/30     1.00  PASS      7.60  -
+01_nominal                   leader_follower    30/30     1.00  PASS      6.27  -
+02_gps_dropout_short         consensus          30/30     1.00  PASS      3.69  2.1
+02_gps_dropout_short         leader_follower    28/30     0.93  PASS      3.93  2.1
+03_gps_dropout_long          consensus          30/30     1.00  PASS      3.69  2.1
+03_gps_dropout_long          leader_follower    30/30     1.00  PASS      3.93  2.1
+04_gps_dropout_leader        consensus          29/30     0.97  PASS      3.83  2.1
+04_gps_dropout_leader        leader_follower    29/30     0.97  PASS      4.41  2.1
+05_comms_loss_single         consensus          29/30     0.97  PASS      7.24  3.1
+05_comms_loss_single         leader_follower    30/30     1.00  PASS      6.03  3.1
+06_comms_blackout_all        consensus          30/30     1.00  PASS      7.54  8.4
+06_comms_blackout_all        leader_follower    30/30     1.00  PASS      5.09  8.8
+07_drone_failure_follower    consensus          30/30     1.00  PASS      7.75  2.8
+07_drone_failure_follower    leader_follower    30/30     1.00  PASS      6.26  2.8
+08_drone_failure_leader      consensus          30/30     1.00  PASS      5.58  9.1
+08_drone_failure_leader      leader_follower    28/30     0.93  PASS      5.79  11.4
+09_gps_degraded_all          consensus          30/30     1.00  PASS      5.82  -
+09_gps_degraded_all          leader_follower    30/30     1.00  PASS      4.07  -
+10_packet_loss_30            consensus          30/30     1.00  PASS      7.90  -
+10_packet_loss_30            leader_follower    30/30     1.00  PASS      4.76  -
+11_high_wind                 consensus          29/30     0.97  PASS      7.55  -
+11_high_wind                 leader_follower    19/30     0.63  FAIL      6.46  -
+12_compound                  consensus          30/30     1.00  PASS      4.75  2.8
+12_compound                  leader_follower    29/30     0.97  PASS      1.24  2.8
