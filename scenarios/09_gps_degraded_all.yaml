@@ -1,0 +1,9 @@
+name: 09_gps_degraded_all
+description: Every drone's GPS becomes 4x noisier with 3% gross outliers for 25 s (multipath / interference). No drone fails - the swarm must stay safe on degraded navigation.
+tags: [gps, noise]
+faults:
+  - {type: gps_noise, drone: all, t: 35.0, t_jitter: 5.0, duration: 25.0, sigma_scale: 4.0, outlier_prob: 0.03}
+criteria:
+  steady_error_p95_m: {max: 5.0}
+  formation_error_max_m: {max: 30.0}
+  false_peer_loss_events: {max: 0}

@@ -1,0 +1,7 @@
+name: 10_packet_loss_30
+description: 30% packet loss on every link for the whole mission (congested or contested spectrum). The heartbeat logic must not raise false alarms or break the formation.
+tags: [comms, degraded]
+faults:
+  - {type: packet_loss, t: 0.0, prob: 0.30}
+criteria:
+  false_peer_loss_events: {max: 0}
