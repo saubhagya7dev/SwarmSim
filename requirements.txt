@@ -1,0 +1,6 @@
+numpy
+matplotlib
+pyyaml
+reportlab
+pillow
+pytest
