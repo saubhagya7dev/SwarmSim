@@ -1,0 +1,9 @@
+name: 07_drone_failure_follower
+description: A follower suffers total motor failure and falls. Expected - peers notice the missing heartbeat, close the gap and continue with one fewer drone.
+tags: [airframe, failure]
+allowed_losses: 1
+faults:
+  - {type: drone_failure, drone: 3, t: 40.0, t_jitter: 5.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 12.0}
