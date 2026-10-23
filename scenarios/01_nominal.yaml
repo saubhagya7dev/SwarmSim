@@ -1,0 +1,6 @@
+name: 01_nominal
+description: Baseline mission in light wind with no injected fault. Establishes the noise floor for every metric.
+tags: [baseline]
+faults: []
+criteria:
+  false_peer_loss_events: {max: 0}
