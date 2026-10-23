@@ -1,0 +1,11 @@
+name: 11_high_wind
+description: Strong steady wind (3-5 m/s) with heavy gusts. Checks that the wind estimator and feed-forward keep the formation tight.
+tags: [environment]
+env:
+  wind_steady_min: 3.0
+  wind_steady_max: 5.0
+  gust_sigma: 1.5
+faults: []
+criteria:
+  steady_error_p95_m: {max: 4.0}
+  false_peer_loss_events: {max: 0}

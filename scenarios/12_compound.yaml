@@ -1,0 +1,13 @@
+name: 12_compound
+description: Stress case. 15% packet loss throughout, a follower crashes at ~35 s, and another follower loses GPS for 6 s at ~55 s. The swarm must survive both events.
+tags: [compound]
+allowed_losses: 1
+expect_rejoin: true
+faults:
+  - {type: packet_loss, t: 0.0, prob: 0.15}
+  - {type: drone_failure, drone: 4, t: 35.0, t_jitter: 3.0}
+  - {type: gps_dropout, drone: 1, t: 55.0, t_jitter: 3.0, duration: 6.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 15.0}
+  rejoin_time_s: {max: 30.0}
