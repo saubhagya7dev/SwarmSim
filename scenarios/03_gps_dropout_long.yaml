@@ -1,0 +1,9 @@
+name: 03_gps_dropout_long
+description: A follower loses GPS for 20 s. Expected - hover, then controlled landing after 10 s; the rest of the swarm keeps the mission and never breaches separation.
+tags: [gps, landing]
+allowed_losses: 1
+faults:
+  - {type: gps_dropout, drone: 2, t: 40.0, t_jitter: 5.0, duration: 20.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 12.0}

@@ -1,0 +1,10 @@
+name: 02_gps_dropout_short
+description: A follower loses GPS for 6 s (shorter than the 10 s landing timeout). Expected - it is dropped from the formation, hovers on dead reckoning, then rejoins after the fix returns.
+tags: [gps, recovery]
+expect_rejoin: true
+faults:
+  - {type: gps_dropout, drone: 2, t: 40.0, t_jitter: 5.0, duration: 6.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 12.0}
+  rejoin_time_s: {max: 30.0}

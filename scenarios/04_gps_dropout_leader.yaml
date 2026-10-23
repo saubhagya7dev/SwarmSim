@@ -1,0 +1,9 @@
+name: 04_gps_dropout_leader
+description: Drone 0 (the leader in leader-follower mode) permanently loses GPS. Expected - it lands, leadership passes to the next drone, the mission continues.
+tags: [gps, leader-loss]
+allowed_losses: 1
+faults:
+  - {type: gps_dropout, drone: 0, t: 40.0, t_jitter: 5.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 15.0}
