@@ -1,0 +1,10 @@
+name: 06_comms_blackout_all
+description: Total radio blackout of every drone for 6 s (jamming-like interference). Expected - everyone holds, nobody collides, the formation re-forms when the link returns.
+tags: [comms, blackout]
+expect_rejoin: true
+faults:
+  - {type: comms_loss, drone: all, t: 40.0, t_jitter: 5.0, duration: 6.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 25.0}
+  rejoin_time_s: {max: 30.0}

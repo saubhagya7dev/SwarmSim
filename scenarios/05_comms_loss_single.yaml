@@ -1,0 +1,10 @@
+name: 05_comms_loss_single
+description: One drone's radio dies for 10 s. Expected - it holds, the others close up around it without entering its keep-out zone, then it rejoins when the link returns.
+tags: [comms, recovery]
+expect_rejoin: true
+faults:
+  - {type: comms_loss, drone: 3, t: 40.0, t_jitter: 5.0, duration: 10.0}
+criteria:
+  detection_time_s: {max: 4.0}
+  recovery_time_s: {max: 12.0}
+  rejoin_time_s: {max: 30.0}
