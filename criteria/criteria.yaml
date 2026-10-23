@@ -1,0 +1,26 @@
+# SwarmSim acceptance criteria  (agreed BEFORE running any experiment; see docs/TEST_PLAN.md)
+#
+# Each criterion is a rule on one metric of a single trial:  {min: x} | {max: x} | {equals: v}
+# 'defaults' apply to every scenario; a scenario file may add criteria (detection_time_s,
+# recovery_time_s, rejoin_time_s ...) or override a default in its own 'criteria:' block.
+# A trial PASSES when every applicable criterion passes.
+# A scenario/controller combination is ACCEPTED when its trial pass rate >= required_pass_rate.
+
+version: 1
+required_pass_rate: 0.90
+
+evaluation:                     # thresholds used when computing the metrics themselves
+  d_collision_m: 2.0            # below this 3-D distance two drones are considered collided
+  d_safe_m: 4.0                 # safety margin used for time_below_safe_sep_s
+  recovery_error_m: 2.5         # formation shape error that counts as "formed up"
+  recovery_hold_s: 4.0          # ... continuously for this long
+  warmup_s: 10.0                # ignore the first seconds (estimator and wind settle)
+  steady_after_change_s: 6.0    # "steady state" starts this long after the last membership change
+
+defaults:
+  min_separation_m:       {min: 2.0}     # HARD safety: no collisions
+  time_below_safe_sep_s:  {max: 1.0}     # SOFT safety: do not linger inside the 4 m margin
+  steady_error_p95_m:     {max: 3.0}     # shape error once settled
+  formation_error_max_m:  {max: 25.0}    # sanity bound on any excursion, incl. transients
+  mission_complete:       {equals: true}
+  geofence_breach:        {equals: false}
